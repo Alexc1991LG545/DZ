@@ -5,9 +5,9 @@
 #include <string>
 
 struct Balance {
-	std::string name;
-	int id;
-	int balance;
+	std::string name{};
+	int id{};
+	int balance{};
 
 
 
@@ -17,6 +17,9 @@ void newBalance(Balance& person);
 
 int main() {
 	Balance personOne{ "Ivan", 22222, 6000 };
+	Balance personTwo;
+	std::cin >> PersonTwo.name;
+	std::cout << PersonTwo.name << std::endl;
 	newBalance(personOne);
 
 	std::cout << personOne.name << '\t' << personOne.id << '\t' << personOne.balance << '\n';
