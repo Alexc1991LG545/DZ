@@ -16,14 +16,18 @@ void newBalance(Balance& person);
 
 
 int main() {
-	Balance personOne{ "Ivan", 22222, 6000 };
-	Balance personTwo;
-	std::cin >> PersonTwo.name;
-	std::cout << PersonTwo.name << std::endl;
+	Balance& personOne{ "Ivan", 22222, 6000 };
+	Balance& persTwo{ "Petr", 3333, 2000 };
+	int setbalance;
+	std::cin >> setBalance;
+	std::cout << "Enter new balance:" << std::endl;
 	newBalance(personOne);
-
 	std::cout << personOne.name << '\t' << personOne.id << '\t' << personOne.balance << '\n';
-
+	std::cout << "Enter new balance:" << std::endl;
+	std::cin >> setBalance;
+	newBalance(persTwo);
+	
+	std::cout << persTwo.name << '\t' << persTwo.id << '\t' << persTwo.balance << '\n';
 
 
 
@@ -39,9 +43,8 @@ int main() {
 
 
 }
-void newBalance(Balance& person) {
+void newBalance(Balance& setBalance) {
 
-	std::cout << "Enter new balance:" << std::endl;
-	std::cin >> person.balance;
-
+	
+	setBalance = Balance{ balance };
 };
