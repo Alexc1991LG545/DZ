@@ -1,5 +1,5 @@
-﻿// DZ-2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-
+﻿// DZ2.3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
 
 #include <iostream>
 #include <string>
@@ -8,43 +8,30 @@ struct Balance {
 	std::string name{};
 	int id{};
 	int balance{};
-
-
-
+	void setNewBalance(int newBalance);
+	
+	
 };
-void newBalance(Balance& person);
 
 
 int main() {
-	Balance& personOne{ "Ivan", 22222, 6000 };
-	Balance& persTwo{ "Petr", 3333, 2000 };
-	int setbalance;
-	std::cin >> setBalance;
-	std::cout << "Enter new balance:" << std::endl;
-	newBalance(personOne);
-	std::cout << personOne.name << '\t' << personOne.id << '\t' << personOne.balance << '\n';
-	std::cout << "Enter new balance:" << std::endl;
-	std::cin >> setBalance;
-	newBalance(persTwo);
+	int newBalance;
+	std::cin >> newBalance;
+	Balance personOne {};
+	std::cout << "Enter your name:" << std::endl;
+	std::cin >> personOne.name;
+	std::cout << "Enter your id:" << std::endl;
+	std::cin >> personOne.id;
+	std::cout << "Enter your balance:" << std::endl;
+	std::cin >> personOne.balance;
+	personOne.setNewBalance(newBalance);
 	
-	std::cout << persTwo.name << '\t' << persTwo.id << '\t' << persTwo.balance << '\n';
-
-
-
-
-
-
-
-
-
-
-
-
-
+	std::cout << personOne.name << '\t' << personOne.id << '\t' << personOne.balance << std::endl;
 
 }
-void newBalance(Balance& setBalance) {
 
-	
-	setBalance = Balance{ balance };
-};
+
+void Balance::setNewBalance(int newBalance) {
+	balance = newBalance;
+
+}
