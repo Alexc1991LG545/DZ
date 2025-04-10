@@ -24,6 +24,8 @@ int main() {
 	std::cin >> personOne.id;
 	std::cout << "Enter your balance:" << std::endl;
 	std::cin >> personOne.balance;
+	int newBalance;
+	std::cin >> newBalance;
 	setNewBalance(personOne);
 	
 
@@ -33,7 +35,6 @@ int main() {
 
 
 void setNewBalance(Balance& person) {
-	int newBalance;
-	std::cin >> newBalance;
+	
 	person.balance = newBalance;
 }
