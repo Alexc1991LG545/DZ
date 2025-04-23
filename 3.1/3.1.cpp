@@ -1,5 +1,4 @@
 ﻿
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -26,7 +25,7 @@ public:
 int main()
 {
     SetConsoleOutputCP(1251);
-    Address** ad;
+    Address** adr;
     int addrCount{};
     std::string lCity;
     std::string lStreet;
@@ -35,30 +34,32 @@ int main()
     std::ifstream fin{ "in.txt" };
     if (fin.is_open()) {
         if (fin >> addrCount) {
-            ad = new Address * [addrCount];
+            adr = new Address * [addrCount];
             for (int i = 0; i < addrCount; ++i) {
                 fin >> lCity >> lStreet >> lHouse >> lFlat;
-                ad[i] = new Address(lCity, lStreet, lHouse, lFlat);
+                adr[i] = new Address(lCity, lStreet, lHouse, lFlat);
             }
             std::ofstream fout{ "out.txt" };
             if (fout.is_open()) {
                 fout << addrCount << std::endl;
                 for (int i = addrCount - 1; i >= 0; --i) {
-                    fout << ad[i]->get_output_address() << std::endl;
+                    fout << adr[i]->get_output_address() << std::endl;
                 }
                 fout.close();
                 for (int i = 0; i < addrCount; ++i) {
-                    delete ad[i];
+                    delete adr[i];
                 }
-                delete[] ad;
+                delete[] adr;
             }
             else {
                 std::cout << "Не получилось открыть файл! \"out.txt\"" << std::endl;
+                delete[] adr;
             }
         }
         fin.close();
     }
     else {
         std::cout << "Не получилось открыть файл! \"in.txt\"" << std::endl;
+        delete[] adr;
     }
 }
