@@ -60,6 +60,6 @@ int main()
     }
     else {
         std::cout << "Не получилось открыть файл! \"in.txt\"" << std::endl;
-        delete[] adr;
+        
     }
 }
