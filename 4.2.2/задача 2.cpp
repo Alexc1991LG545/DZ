@@ -1,58 +1,33 @@
 ﻿// задача 2.
 
-#include <iostream>
+
+
+﻿#include <iostream>
 #include <Windows.h>
 
-
-
-
-
-/*int fib(int n) {
-    int arr[n-1]{ 0,1 };
-    for (int i = 2; i <= n; i++) {
-        arr[i] = arr[i - 1] + arr[i - 2];
-    }
-    return arr[n];
-}
-*/
-
-
-
-
-
-
-
-
-
-
-int sum(int a ) {
-    int* arr = new int[a];
-    arr[0] = 0;
-    arr[1] = 1;
-    for (int i = 2; i <= a; i++) {
-        arr[i] = arr[i - 1] + arr[i - 2];
-    }
-    return arr[a];
-
-    delete[] arr;
-}
-
-
-
-int main()
+long long fibonacci(int n, long long* mass)
 {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
-
-    int a = 0, b = 0;
-
-    std::cout << "Введите колличество рекурсий. ";
-    std::cin >> a;
-    b = sum(a);
-    std::cout << "\nсумма чисел фибоначи " << b;
-
+    if (mass[n] != 0) return mass[n];
+    else if (n < 2) {
+        mass[n] = n;
+    }
+    else {
+        mass[n] = fibonacci(n - 2, mass) + fibonacci(n - 1, mass);
+    }
+    return mass[n];
 }
 
+int main() {
+    SetConsoleOutputCP(1251);
 
-// памать О(n) т.к. мы задействуем дополнительную память.
-// скорость О(n) т.к. приходится проходить по рекурсии и доставать числа, но благодаря матрице это значительно быстрее.
+    std::cout << "Введите число: ";
+    int num{};
+    std::cin >> num;
+    long long* mass = new long long[num] {};
+    std::cout << std::endl;
+    for (int i = 0; i < num; ++i)
+    {
+        std::cout << fibonacci(i, mass) << " ";
+    }
+    return 0;
+}
